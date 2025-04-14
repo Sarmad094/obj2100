@@ -1,6 +1,6 @@
 # Spring Boot Mail Server API
 
-En enkel mail server app jeg laget med Spring Boot og PostgreSQL. Dette er dokumentasjon for å komme i gang.
+En enkel mail server app vi har laget med Spring Boot og PostgreSQL. Dette er dokumentasjon for å komme i gang.
 
 ## Teknologier
 
