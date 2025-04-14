@@ -26,7 +26,7 @@ public class Email {
     @Column(name = "timestamp")
     private LocalDateTime timestamp;
 
-    // Gettere og settere
+
     public Long getId() {
         return id;
     }

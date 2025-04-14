@@ -21,31 +21,32 @@ public class UserServiceImpl implements UserService {
     @Override
     public User getUserById(Long id) {
         Optional<User> userOptional = repository.findById(id);
-        return userOptional.orElse(null); // Return user if exists, otherwise null
+        return userOptional.orElse(null);
     }
 
     @Override
-    public void saveUser(User user) {
-        repository.save(user); // Save user to the database
+    public User saveUser(User user) {
+        repository.save(user);
+        return user;
     }
 
     @Override
     public void deleteUser(Long id) {
-        repository.deleteById(id); // Delete user with specified ID
+        repository.deleteById(id);
     }
 
     @Override
     public List<User> getAllUsers() {
-        return repository.findAll(); // Return all users from the database
+        return repository.findAll();
     }
 
     @Override
     public User getUserByUsername(String username) {
-        return repository.findByUsername(username); // Fetch user by username
+        return repository.findByUsername(username);
     }
 
     @Override
     public User getUserByEmail(String email) {
-        return repository.findByEmail(email); // Fetch user by email
+        return repository.findByEmail(email);
     }
 }
