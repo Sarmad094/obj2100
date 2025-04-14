@@ -74,63 +74,7 @@ Appen kjører på http://localhost:8080
 
 De to hovedmodellene er:
 
-### User klassen
-```java
-@Entity
-@Table(name = "users")
-@Data
-@NoArgsConstructor
-public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    
-    @Column(unique = true, nullable = false)
-    private String username;
-    
-    @Column(unique = true, nullable = false)
-    private String email;
-    
-    @Column(nullable = false)
-    private String password;
-    
-    @OneToMany(mappedBy = "fromUser", cascade = CascadeType.ALL)
-    private List<Email> sentEmails = new ArrayList<>();
-    
-    @OneToMany(mappedBy = "toUser", cascade = CascadeType.ALL)
-    private List<Email> receivedEmails = new ArrayList<>();
-}
-```
 
-### Email klassen
-```java
-@Entity
-@Table(name = "emails")
-@Data
-@NoArgsConstructor
-public class Email {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    
-    @ManyToOne
-    @JoinColumn(name = "from_user_id", nullable = false)
-    private User fromUser;
-    
-    @ManyToOne
-    @JoinColumn(name = "to_user_id", nullable = false)
-    private User toUser;
-    
-    @Column(nullable = false)
-    private String subject;
-    
-    @Column(nullable = false, columnDefinition = "TEXT")
-    private String body;
-    
-    @Column(nullable = false)
-    private LocalDateTime timestamp;
-}
-```
 
 ## Mappestruktur
 
