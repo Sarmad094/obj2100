@@ -14,6 +14,6 @@ public interface MailRepository extends JpaRepository<Email, Long> {
 
     List<Email> findMailByContentContainingAndSubjectContains(String str1, String str2);
 
-    @Query(value = "SELECT * FROM mail WHERE from_email LIKE %:domain", nativeQuery = true)
+    @Query(value = "SELECT * FROM email WHERE from_email LIKE %:domain", nativeQuery = true)
     List<Email> getMailsByDomain(String domain);
 }

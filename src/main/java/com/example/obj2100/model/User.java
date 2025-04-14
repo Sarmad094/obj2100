@@ -8,11 +8,17 @@ import lombok.Setter;
 @Setter
 @Getter
 public class User {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO) // auto inc. key
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "username")
+    @Column(nullable = false)
     private String username;
 
+    @Column(nullable = false, unique = true)
+    private String email;
+
+    @Column(nullable = false)
+    private String password;
 }
