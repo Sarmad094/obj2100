@@ -12,7 +12,8 @@ public interface MailRepository extends JpaRepository<Email, Long> {
 
     List<Email> findAllByFromEmail(String fromEmail);
 
-    List<Email> findMailByContentContainingAndSubjectContains(String str1, String str2);
+    // Fixed method - changed "content" to "body" and removed "Mail" prefix
+    List<Email> findByBodyContainingAndSubjectContains(String str1, String str2);
 
     @Query(value = "SELECT * FROM email WHERE from_email LIKE %:domain", nativeQuery = true)
     List<Email> getMailsByDomain(String domain);

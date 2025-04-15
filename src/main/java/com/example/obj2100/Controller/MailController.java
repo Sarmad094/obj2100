@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/mail")
+@RequestMapping("/api/emails") // Endret fra /api/mail til /api/emails for å matche modelnavnet og REST-konvensjon
 public class MailController {
 
     private final MailService mailService;
@@ -59,4 +59,3 @@ public class MailController {
         return mailService.getMailsByDomain(domain);
     }
 }
-
